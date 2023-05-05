@@ -1,0 +1,22 @@
+
+name: Run file
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run_file:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Build and Run the App
+      run: |
+        echo "............................"
+        node --version
+        node index.js
